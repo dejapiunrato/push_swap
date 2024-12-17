@@ -24,6 +24,12 @@ long int	ft_atoi(char *s)
 	return (num * neg);
 }
 
+void	ft_putstr(char *s)
+{
+	while (*s)
+		write(1, s++, 1);
+}
+
 int	ft_strlen(char *s)
 {
 	int	i;

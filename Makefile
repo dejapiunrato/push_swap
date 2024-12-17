@@ -5,8 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes
 SRCS_DIR = sources
 OBJS_DIR = objects
-SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/inizialization.c $(SRCS_DIR)/check_input.c $(SRCS_DIR)/check_input_utils.c $(SRCS_DIR)/utils_1.c $(SRCS_DIR)/stack.c
-OBJS = $(OBJS_DIR)/main.o $(OBJS_DIR)/inizialization.o $(OBJS_DIR)/check_input.o $(OBJS_DIR)/check_input_utils.o $(OBJS_DIR)/utils_1.o $(OBJS_DIR)/stack.o
+SRCS = $(SRCS_DIR)/main.c $(SRCS_DIR)/inizialization.c $(SRCS_DIR)/check_input.c $(SRCS_DIR)/check_input_utils.c $(SRCS_DIR)/utils_1.c $(SRCS_DIR)/stack.c $(SRCS_DIR)/swap.c $(SRCS_DIR)/push.c
+OBJS = $(OBJS_DIR)/main.o $(OBJS_DIR)/inizialization.o $(OBJS_DIR)/check_input.o $(OBJS_DIR)/check_input_utils.o $(OBJS_DIR)/utils_1.o $(OBJS_DIR)/stack.o $(OBJS_DIR)/swap.o $(OBJS_DIR)/push.o
 RM = rm -f
 
 # Regla principal

@@ -8,9 +8,9 @@
 
 typedef struct s_stack
 {
-	int				value;
-	int				index;
-	struct s_stack	*next;
+    int				value;
+    int				index;
+    struct s_stack	*next;
 }	t_stack;
 
 // check_input_utils.c
@@ -27,6 +27,7 @@ int			check_input(char **input);
 
 // utils_1.c
 long int	ft_atoi(char *s);
+void		ft_putstr(char *s);
 int			ft_strlen(char *s);
 
 // stack.c
@@ -38,5 +39,14 @@ void		add_node_end(t_stack **stack, t_stack *new);
 // inizialization.c
 t_stack		*start_stack(char **argv);
 int			add_index(t_stack *stack);
+
+// swap.c
+void		swap_a(t_stack **stack);
+void		swap_b(t_stack **stack);
+void		swap_ab(t_stack **stack_a, t_stack **stack_b);
+
+// push.c
+void		push_a(t_stack **stack_a, t_stack **stack_b);
+void		push_b(t_stack **stack_a, t_stack **stack_b);
 
 #endif
