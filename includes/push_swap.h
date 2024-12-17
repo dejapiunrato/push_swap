@@ -49,4 +49,9 @@ void		swap_ab(t_stack **stack_a, t_stack **stack_b);
 void		push_a(t_stack **stack_a, t_stack **stack_b);
 void		push_b(t_stack **stack_a, t_stack **stack_b);
 
+// rotate.c
+void		rotate_a(t_stack **stack);
+void		rotate_b(t_stack **stack);
+void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
+
 #endif

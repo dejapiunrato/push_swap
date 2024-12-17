@@ -54,6 +54,14 @@ int main(int argc, char **argv)
         printf(BLUE "Initial state:\n" RESET);
         print_stacks(stack_a, stack_b);
 
+        // ra ra ra ra ra
+        for (int i = 0; i < 2; i++)
+        {
+            rotate_a(&stack_a);
+        }
+        printf(BLUE "\nAfter ra ra ra ra ra:\n" RESET);
+        print_stacks(stack_a, stack_b);
+
         // pb pb pb pb pb
         for (int i = 0; i < 5; i++)
         {
@@ -62,22 +70,28 @@ int main(int argc, char **argv)
         printf(BLUE "\nAfter pb pb pb pb pb:\n" RESET);
         print_stacks(stack_a, stack_b);
 
-        // sb
-        swap_b(&stack_b);
-        printf(BLUE "\nAfter sb:\n" RESET);
+        // rb rb rb rb rb
+        for (int i = 0; i < 2; i++)
+        {
+            rotate_b(&stack_b);
+        }
+        printf(BLUE "\nAfter rb rb rb rb rb:\n" RESET);
         print_stacks(stack_a, stack_b);
 
-        // pa pa pa pa pa
-        for (int i = 0; i < 5; i++)
+        // pa pa pa
+        for (int i = 0; i < 3; i++)
         {
             push_a(&stack_a, &stack_b);
         }
-        printf(BLUE "\nAfter pa pa pa pa pa:\n" RESET);
+        printf(BLUE "\nAfter pa pa pa:\n" RESET);
         print_stacks(stack_a, stack_b);
 
-        // sa
-        swap_a(&stack_a);
-        printf(BLUE "\nAfter sa:\n" RESET);
+        // rr rr rr
+        for (int i = 0; i < 1; i++)
+        {
+            rotate_ab(&stack_a, &stack_b);
+        }
+        printf(BLUE "\nAfter rr rr rr:\n" RESET);
         print_stacks(stack_a, stack_b);
 
         free_stack(&stack_a);
