@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-int	ft_atoi(char *s)
+long int	ft_atoi(char *s)
 {
-	int	i;
-	int	num;
-	int	neg;
+	int			i;
+	long int	num;
+	int			neg;
 
 	i = 0;
 	num = 0;
