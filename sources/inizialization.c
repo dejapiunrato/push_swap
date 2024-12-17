@@ -20,17 +20,18 @@ t_stack	*start_stack(char **argv)
 			add_node_end(&stack_a, new_node((int)num));
 		i++;
 	}
-	add_index(stack_a);
 	return (stack_a);
 }
 
-void	add_index(t_stack *stack)
+int	add_index(t_stack *stack)
 {
 	t_stack *tmp1;
 	t_stack *tmp2;
 	int		i;
+	int		size;
 
 	tmp1 = stack;
+	size = 0;
 	while (tmp1)
 	{
 		tmp2 = stack;
@@ -43,5 +44,7 @@ void	add_index(t_stack *stack)
 		}
 		tmp1->index = i;
 		tmp1 = tmp1->next;
+		size++;
 	}
+	return (size);
 }

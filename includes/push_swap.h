@@ -37,6 +37,6 @@ void		add_node_end(t_stack **stack, t_stack *new);
 
 // inizialization.c
 t_stack		*start_stack(char **argv);
-void		add_index(t_stack *stack);
+int			add_index(t_stack *stack);
 
 #endif
