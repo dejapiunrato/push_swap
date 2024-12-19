@@ -39,11 +39,11 @@ void test_sort_4(char **argv, int test_num)
 
     if (is_sorted(stack_a))
     {
-        printf(WHITE "Test %d: " RESET "["GREEN "OK" RESET"]\n", test_num);
+        printf(WHITE "Test %d: " RESET GREEN "OK\n" RESET, test_num);
     }
     else
     {
-        printf(WHITE "Test %d: " RESET "["RED "KO" RESET"]\n", test_num);
+        printf(WHITE "Test %d: " RESET RED "KO\n" RESET, test_num);
         printf("Stack to sort: ");
         print_stack_values(stack_a);
         printf("Resulting stack: ");

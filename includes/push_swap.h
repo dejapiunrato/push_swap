@@ -30,6 +30,9 @@ long int	ft_atoi(char *s);
 void		ft_putstr(char *s);
 int			ft_strlen(char *s);
 
+// utils_2.c
+int			get_max_index(t_stack **stack);
+
 // stack.c
 void		free_stack(t_stack **stack);
 t_stack 	*new_node(int value);
@@ -53,5 +56,19 @@ void		push_b(t_stack **stack_a, t_stack **stack_b);
 void		rotate_a(t_stack **stack);
 void		rotate_b(t_stack **stack);
 void		rotate_ab(t_stack **stack_a, t_stack **stack_b);
+
+// reverse_rotate.c
+void		reverse_rotate_a(t_stack **stack);
+void		reverse_rotate_b(t_stack **stack);
+void		reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b);
+
+// sort_simple.c
+void		sort_2(t_stack **stack);
+void		sort_3(t_stack **stack);
+void		sort_4(t_stack **stack_a, t_stack **stack_b);
+
+// sort_simple_utils.c
+int			*check_order_return_max(t_stack **stack, int size);
+int			*check_order_return_min(t_stack **stack, int size);
 
 #endif
