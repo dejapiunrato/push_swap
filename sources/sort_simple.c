@@ -20,7 +20,7 @@ max[3] = tamaño del stack
 */
 void	sort_3(t_stack **stack)
 {
-	int		*max;
+	unsigned int	*max;
 
 	max = check_order_return_max(stack, 3);
 	if (max[2]) // Está ordenado
@@ -44,7 +44,7 @@ min[3] = tamaño del stack
 */
 void	sort_4(t_stack **stack_a, t_stack **stack_b)
 {
-	int	*min;
+	unsigned int	*min;
 
 	min = check_order_return_min(stack_a, 4);
 	int i = 0;

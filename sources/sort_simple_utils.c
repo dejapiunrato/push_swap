@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
-static int	*init_array(t_stack **stack)
+static unsigned int	*init_array(t_stack **stack)
 {
-	int	*arr;
+	unsigned int	*arr;
 
-	arr = (int *)malloc(4 * sizeof(int));
+	arr = (unsigned int *)malloc(4 * sizeof(unsigned int));
 	if (!arr)
 		exit_error(stack, NULL);
 	arr[0] = (*stack)->index;
@@ -20,11 +20,11 @@ max[0] = Indice máximo
 max[1] = posición del índice máximo
 max[2] = ordenado(1) o desordenado(0)
 max[3] = tamaño */
-int	*check_order_return_max(t_stack **stack, int size)
+unsigned int	*check_order_return_max(t_stack **stack, unsigned int size)
 {
-	int		*max;
-	t_stack	*tmp;
-	int		i;
+	unsigned int	*max;
+	t_stack			*tmp;
+	unsigned int	i;
 
 	max = init_array(stack);
 	tmp = *stack;
@@ -51,11 +51,11 @@ int	*check_order_return_max(t_stack **stack, int size)
 	return(max);
 }
 
-int	*check_order_return_min(t_stack **stack, int size)
+unsigned int	*check_order_return_min(t_stack **stack, unsigned int size)
 {
-	int		*min;
-	t_stack	*tmp;
-	int		i;
+	unsigned int	*min;
+	t_stack			*tmp;
+	unsigned int	i;
 
 	min = init_array(stack);
 	tmp = *stack;

@@ -23,12 +23,31 @@ t_stack	*start_stack(char **argv)
 	return (stack_a);
 }
 
-int	add_index(t_stack *stack)
+static char	*ft_bin(unsigned int index)
 {
-	t_stack *tmp1;
-	t_stack *tmp2;
+	char	*bin;
 	int		i;
-	int		size;
+
+	bin = malloc(sizeof(char) * 33);
+	if (!bin)
+		exit_error(NULL, NULL);
+	bin[32] = '\0';
+	i = 31;
+	while (i >= 0)
+	{
+		bin[i] = (index % 2) + '0';
+		index /= 2;
+		i--;
+	}
+	return (bin);
+}
+
+unsigned int	add_index(t_stack *stack)
+{
+	t_stack 		*tmp1;
+	t_stack 		*tmp2;
+	unsigned int	size;
+	unsigned int	i;
 
 	tmp1 = stack;
 	size = 0;
@@ -43,6 +62,7 @@ int	add_index(t_stack *stack)
 			tmp2 = tmp2->next;
 		}
 		tmp1->index = i;
+		tmp1->bin = ft_bin(i);
 		tmp1 = tmp1->next;
 		size++;
 	}
