@@ -2,6 +2,7 @@
 	"files.associations": {
 		"push_swap.h": "c",
 		"cstdlib": "c",
-		"limits": "c"
+		"limits": "c",
+		"radix_sort": "cpp"
 	}
 }

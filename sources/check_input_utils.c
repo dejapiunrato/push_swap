@@ -26,23 +26,12 @@ int	is_zero(char *s)
 
 int	cmp_nbr(char *n1, char *n2)
 {
-	int	i;
-	int	j;
+	int	num1;
+	int	num2;
 
-	i = 0;
-	j = 0;
-	if (n1[i] == '+')
-		i++;
-	if (n2[j] == '+')
-		j++;
-	while (n1[i])
-	{
-		if (n1[i] != n2[j])
-			return (0);
-		i++;
-		j++;
-	}
-	return (1);
+	num1 = ft_atoi(n1);
+	num2 = ft_atoi(n2);
+	return (num1 == num2);
 }
 
 int	is_num(char *s)

@@ -25,13 +25,15 @@ void print_stack(t_stack *stack)
 int main(int argc, char **argv)
 {
     t_stack *stack_a = NULL;
+    int bin_len;
 
     if (argc > 1)
     {
         if (!check_input(argv + 1))
             exit_error(&stack_a, NULL);
         stack_a = start_stack(argv);
-        add_index(stack_a);
+        bin_len = add_index(stack_a, argc - 1);
+        printf("%d \n", bin_len);
         print_stack(stack_a);
         free_stack(&stack_a);
     }
