@@ -19,21 +19,21 @@ static void	reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-void	reverse_rotate_a(t_stack **stack)
+char	*reverse_rotate_a(t_stack **stack)
 {
 	reverse_rotate(stack);
-	ft_putstr("rra\n");
+	return ("rra\n");
 }
 
-void	reverse_rotate_b(t_stack **stack)
+char	*reverse_rotate_b(t_stack **stack)
 {
 	reverse_rotate(stack);
-	ft_putstr("rrb\n");
+	return ("rrb\n");
 }
 
-void	reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b)
+char	*reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_putstr("rrr\n");
+	return ("rrr\n");
 }
