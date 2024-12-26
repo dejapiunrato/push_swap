@@ -25,17 +25,24 @@ void print_stack(t_stack *stack)
 int main(int argc, char **argv)
 {
     t_stack *stack_a = NULL;
-    int bin_len;
-
+    t_stack *stack_b = NULL;
+    t_size  *size;
     if (argc > 1)
     {
         if (!check_input(argv + 1))
             exit_error(&stack_a, NULL);
         stack_a = start_stack(argv);
-        bin_len = add_index(stack_a, argc - 1);
-        printf("%d \n", bin_len);
+        size = start_size(argc);
+        add_index(stack_a, size->bin_pos);
+        printf("Initial stack:\n");
         print_stack(stack_a);
+        radix_sort(&stack_a, &stack_b, size);
+        printf("Sorted stack:\n");
+        print_stack(stack_a);
+        print_stack(stack_b);
         free_stack(&stack_a);
+        free_stack(&stack_b);
+        free(size);
     }
     else
     {

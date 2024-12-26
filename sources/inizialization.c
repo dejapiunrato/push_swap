@@ -22,8 +22,21 @@ t_stack	*start_stack(char **argv)
 	}
 	return (stack_a);
 }
+t_size	*start_size(int	argc)
+{
+	t_size	*size;
 
-static int	bin_len(int size)
+	size = malloc(sizeof(t_size));
+	if (!size)
+		exit_error(NULL, NULL);
+	size->size = argc - 1;
+	size->size_a = size->size;
+	size->size_b = 0;
+	size->bin_pos = bin_len(size->size);
+	return (size);
+}
+
+int	bin_len(int size)
 {
 	int		len;
 
@@ -36,16 +49,16 @@ static int	bin_len(int size)
 	return (len);
 }
 
-static char	*add_bin(int index, int len)
+static char	*add_bin(int index, int bin_len)
 {
 	char	*bin;
 	int		i;
 
-	bin = malloc(sizeof(char) * len);
+	bin = malloc(sizeof(char) * bin_len);
 	if (!bin)
 		exit_error(NULL, NULL);
-	bin[len] = '\0';
-	i = len - 1;
+	bin[bin_len] = '\0';
+	i = bin_len - 1;
 	while (i >= 0)
 	{
 		bin[i] = (index % 2) + '0';
@@ -55,15 +68,13 @@ static char	*add_bin(int index, int len)
 	return (bin);
 }
 
-int	add_index(t_stack *stack, int size)
+void	add_index(t_stack *stack, int bin_len)
 {
 	t_stack 		*tmp1;
 	t_stack 		*tmp2;
 	int				i;
-	int				len;
 
 	tmp1 = stack;
-	len = bin_len(size);
 	while (tmp1)
 	{
 		tmp2 = stack;
@@ -75,8 +86,7 @@ int	add_index(t_stack *stack, int size)
 			tmp2 = tmp2->next;
 		}
 		tmp1->index = i;
-		tmp1->bin = add_bin(i, len);
+		tmp1->bin = add_bin(i, bin_len);
 		tmp1 = tmp1->next;
 	}
-	return (len);
 }

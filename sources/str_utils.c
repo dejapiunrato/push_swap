@@ -40,7 +40,7 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	char	*str;
@@ -55,4 +55,21 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i++] = *s2++;
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strdup(char *s)
+{
+	size_t	size;
+	char	*d;
+	char	*aux;
+
+	size = ft_strlen(s) + 1;
+	d = malloc(size);
+	if (!d)
+		exit_error(NULL, NULL);
+	aux = d;
+	while (*s)
+		*d++ = *s++;
+	*d = '\0';
+	return (aux);
 }
