@@ -21,7 +21,6 @@ int	is_dup(char **input)
 	return (0);
 }
 
-//añadir liberar stacks.
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (!stack_a || !*stack_a)

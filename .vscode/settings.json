@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"radix_sort": "cpp"
+		"radix_sort": "cpp",
+		"push_swap.h": "c"
 	}
 }
