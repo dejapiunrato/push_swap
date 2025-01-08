@@ -14,6 +14,7 @@ char	*optim_rotation_a(t_size *size, int i, char *solution)
 		i = size->size_a - i;
 	}
 	solution = add_moves(solution, rot, i);
+	free(rot);
 	return (solution);
 }
 
@@ -30,7 +31,8 @@ char	*optim_rotation_b(t_size *size, int i, char *solution)
 		rot = ft_strdup("rrb\n");
 		i = size->size_b - i;
 	}
-	solution = add_moves(solution, rot, i);
+	solution = add_moves(solution, rot, i);;
+	free(rot);
 	return (solution);
 }
 

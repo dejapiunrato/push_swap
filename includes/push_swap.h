@@ -34,6 +34,7 @@ int				is_num(char *s);
 int				is_dup(char **input);
 void			exit_error(t_stack **stack_a, t_stack **stack_b);
 int				check_input(char **input);
+int				check_order(t_stack **stack);
 
 // Funciones de str_utils.c
 long int		ft_atoi(char *s);

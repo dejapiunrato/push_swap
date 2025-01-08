@@ -22,6 +22,7 @@ t_stack	*start_stack(char **argv)
 	}
 	return (stack_a);
 }
+
 t_size	*start_size(int	argc)
 {
 	t_size	*size;

@@ -1,17 +1,18 @@
 #include "push_swap.h"
 
-/* void	sort_2(t_stack **stack)
-{
-	t_stack	*first;
-	t_stack	*second;
+	/* char	*sort_2(t_stack **stack)
+	{
+		char *
+		t_stack	*first;
+		t_stack	*second;
 
-	first = *stack;
-	second = (*stack)->next;
-	if (first->index < second->index)
-		return ;
-	else
-		swap_a(stack);
-} */
+		first = *stack;
+		second = (*stack)->next;
+		if (first->index < second->index)
+			return ;
+		else
+			swap_a(stack);
+	} */
 /* 
 max[0] = Indice máximo
 max[1] = posición del índice máximo

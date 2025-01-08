@@ -51,3 +51,17 @@ int	check_input(char **input)
 		return (0);
 	return (1);
 }
+
+int	check_order(t_stack **stack)
+{
+	t_stack	*tmp;
+	tmp = *stack;
+
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
