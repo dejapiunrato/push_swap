@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-char	*sort_2(t_stack **stack_a, char *solution)
+char	*sort_2(t_stack **stack_a, char *sol)
 {
 	int	first;
 	int	second;
@@ -10,12 +10,12 @@ char	*sort_2(t_stack **stack_a, char *solution)
 	if (first > second)
 	{
 		swap(stack_a);
-		solution = add_moves(solution, "sa\n", 1);
+		sol = add_moves(sol, "sa\n", 1);
 	}
-	return (solution);
+	return (sol);
 }
 
-char	*sort_3(t_stack **stack_a, t_size *size, char *solution)
+char	*sort_3(t_stack **stack_a, t_size *size, char *sol)
 {
 	int				i;
 	unsigned int	j;
@@ -35,15 +35,15 @@ char	*sort_3(t_stack **stack_a, t_size *size, char *solution)
 		last = get_last_node(stack_a);
 		i++;
 	}
-	solution = optim_rotation_a(size, i, solution);
-	solution = sort_2(stack_a, solution);
-	return (solution);
+	sol = optim_rotation_a(size, i, sol);
+	sol = sort_2(stack_a, sol);
+	return (sol);
 }
 
-char *sort_4(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
+char	*sort_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int				i;
-	unsigned int 	j;
+	unsigned int	j;
 
 	if (size->size == 5)
 		j = 1;
@@ -55,16 +55,16 @@ char *sort_4(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
 		rotate(stack_a);
 		i++;
 	}
-	solution = optim_rotation_a(size, i, solution);
-	push(stack_a, stack_b);
-	solution = add_moves(solution, "pb\n", 1);
-	solution = sort_3(stack_a, size, solution);
-	push(stack_b, stack_a);
-	solution = add_moves(solution, "pa\n", 1);
-	return (solution);
+	sol = optim_rotation_a(size, i, sol);
+	push(stack_a, s_b);
+	sol = add_moves(sol, "pb\n", 1);
+	sol = sort_3(stack_a, size, sol);
+	push(s_b, stack_a);
+	sol = add_moves(sol, "pa\n", 1);
+	return (sol);
 }
 
-char *sort_5(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
+char	*sort_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	i;
 
@@ -74,10 +74,10 @@ char *sort_5(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
 		rotate(stack_a);
 		i++;
 	}
-	solution = optim_rotation_a(size, i, solution);
-	push(stack_a, stack_b);
-	solution = add_moves(solution, "pb\n", 1);
-	solution = sort_4(stack_a, stack_b, size, solution);
-	solution = add_moves(solution, "pa\n", 1);
-	return (solution);
+	sol = optim_rotation_a(size, i, sol);
+	push(stack_a, s_b);
+	sol = add_moves(sol, "pb\n", 1);
+	sol = sort_4(stack_a, s_b, size, sol);
+	sol = add_moves(sol, "pa\n", 1);
+	return (sol);
 }

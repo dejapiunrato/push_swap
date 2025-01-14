@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-t_stack *new_node(int value)
+t_stack	*new_node(int value)
 {
-	t_stack *new;
+	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
@@ -15,15 +15,14 @@ t_stack *new_node(int value)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!stack || !*stack)
 		return ;
-
 	while (*stack)
 	{
-		tmp = (* stack)->next;
-		free((* stack)->bin);
+		tmp = (*stack)->next;
+		free((*stack)->bin);
 		free(*stack);
 		*stack = tmp;
 	}
@@ -32,7 +31,7 @@ void	free_stack(t_stack **stack)
 
 t_stack	*get_last_node(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!stack || !*stack)
 		return (NULL);
@@ -44,7 +43,7 @@ t_stack	*get_last_node(t_stack **stack)
 
 void	add_node_end(t_stack **stack, t_stack *new)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	if (!stack || !new)
 		return ;

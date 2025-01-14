@@ -75,9 +75,9 @@ unsigned int	*check_order_return_max(t_stack **stack, unsigned int size);
 unsigned int	*check_order_return_min(t_stack **stack, unsigned int size);
 
 // Funciones de radix_sort.c
-char			*move_to_b(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
-char			*move_to_a(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
-char			*radix_sort(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
+char			*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol);
+char			*push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol);
+char			*radix_sort(t_stack **s_a, t_stack **s_b, t_size *size, char *sol);
 
 // Funciones de radix_sort_utils.c
 char			*optim_rotation_a(t_size *size, int i, char *solution);

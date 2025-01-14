@@ -23,7 +23,7 @@ t_stack	*start_stack(char **argv)
 	return (stack_a);
 }
 
-t_size	*start_size(int	argc)
+t_size	*start_size(int argc)
 {
 	t_size	*size;
 
@@ -71,9 +71,9 @@ static char	*add_bin(int index, int bin_len)
 
 void	add_index(t_stack *stack, int bin_len)
 {
-	t_stack 		*tmp1;
-	t_stack 		*tmp2;
-	int				i;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
+	int		i;
 
 	tmp1 = stack;
 	while (tmp1)

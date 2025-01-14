@@ -55,8 +55,8 @@ int	check_input(char **input)
 int	check_order(t_stack **stack)
 {
 	t_stack	*tmp;
-	tmp = *stack;
 
+	tmp = *stack;
 	while (tmp->next)
 	{
 		if (tmp->value > tmp->next->value)
