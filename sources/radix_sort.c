@@ -1,6 +1,20 @@
 #include "push_swap.h"
 
-char *rotations(t_stack)
+void	pushes(t_stack **stack_a, t_stack **stack_b, t_size *size, char stack)
+{
+	if (stack == 'b')
+	{
+		push(stack_a, stack_b);
+		size->size_a--;
+		size->size_b++;
+	}
+	else if (stack == 'a')
+	{
+		push(stack_b, stack_a);
+		size->size_b--;
+		size->size_a++;
+	}
+}
 
 char	*move_to_b(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
 {
@@ -13,10 +27,8 @@ char	*move_to_b(t_stack **stack_a, t_stack **stack_b, t_size *size, char *soluti
 	{
 		if ((*stack_a)->bin[size->bin_pos - 1] == '0' && j++ < size->size)
 		{
-			push(stack_a, stack_b);
+			pushes(stack_a, stack_b, size, 'b');
 			solution = add_moves(solution, "pb\n", 1);
-			size->size_a--;
-			size->size_b++;
 		}
 		else 
 		{
@@ -43,10 +55,8 @@ char	*move_to_a(t_stack **stack_a, t_stack **stack_b, t_size *size, char *soluti
 	{
 		if ((*stack_b)->bin[size->bin_pos - 1] == '1' && j++ < size->size)
 		{
-			push(stack_b, stack_a);
+			pushes(stack_a, stack_b, size, 'a');
 			solution = add_moves(solution, "pa\n", 1);
-			size->size_b--;
-			size->size_a++;
 		}
 		else
 		{

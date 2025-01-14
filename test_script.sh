@@ -18,7 +18,7 @@ generate_random_numbers() {
 echo -e "${YELLOW}Pruebas con 100 números desordenados:${NC}"
 for i in {1..15}
 do
-    ARG=$(generate_random_numbers 3)
+    ARG=$(generate_random_numbers 100)
     RESULT=$(./push_swap $ARG | ./checker_linux $ARG)
     LINE_COUNT=$(./push_swap $ARG | wc -l)
     
