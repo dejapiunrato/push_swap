@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+char *rotations(t_stack)
+
 char	*move_to_b(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
 {
 	int	i;
@@ -60,10 +62,8 @@ char	*move_to_a(t_stack **stack_a, t_stack **stack_b, t_size *size, char *soluti
 	return (solution);
 }
 
-char *radix_sort(t_stack **stack_a, t_stack **stack_b, t_size *size)
+char *radix_sort(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution)
 {
-	char *solution = ft_strdup("");
-
 	while (size->bin_pos > 0)
 	{
 		solution = move_to_b(stack_a, stack_b, size, solution);

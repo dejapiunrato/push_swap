@@ -55,7 +55,7 @@ static char	*add_bin(int index, int bin_len)
 	char	*bin;
 	int		i;
 
-	bin = malloc(sizeof(char) * bin_len);
+	bin = malloc(sizeof(char) * (bin_len + 1));
 	if (!bin)
 		exit_error(NULL, NULL);
 	bin[bin_len] = '\0';

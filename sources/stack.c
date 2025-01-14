@@ -23,6 +23,7 @@ void	free_stack(t_stack **stack)
 	while (*stack)
 	{
 		tmp = (* stack)->next;
+		free((* stack)->bin);
 		free(*stack);
 		*stack = tmp;
 	}

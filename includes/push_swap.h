@@ -65,9 +65,10 @@ void			rotate(t_stack **stack);
 void			swap(t_stack **stack);
 
 // Funciones de sort_simple.c
-void			sort_2(t_stack **stack);
-void			sort_3(t_stack **stack);
-void			sort_4(t_stack **stack_a, t_stack **stack_b);
+char	*sort_2(t_stack **stack_a, char *solution);
+char	*sort_3(t_stack **stack_a, t_size *size, char *solution);
+char    *sort_4(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
+char *sort_5(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
 
 // Funciones de sort_simple_utils.c
 unsigned int	*check_order_return_max(t_stack **stack, unsigned int size);
@@ -76,7 +77,7 @@ unsigned int	*check_order_return_min(t_stack **stack, unsigned int size);
 // Funciones de radix_sort.c
 char			*move_to_b(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
 char			*move_to_a(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
-char			*radix_sort(t_stack **stack_a, t_stack **stack_b, t_size *size);
+char			*radix_sort(t_stack **stack_a, t_stack **stack_b, t_size *size, char *solution);
 
 // Funciones de radix_sort_utils.c
 char			*optim_rotation_a(t_size *size, int i, char *solution);
