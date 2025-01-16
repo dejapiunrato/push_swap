@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-char	*sort_2(t_stack **stack_a, char *sol)
+char	*s_2(t_stack **stack_a, char *sol)
 {
 	int	first;
 	int	second;
@@ -15,7 +15,7 @@ char	*sort_2(t_stack **stack_a, char *sol)
 	return (sol);
 }
 
-char	*sort_3(t_stack **stack_a, t_size *size, char *sol)
+char	*s_3(t_stack **stack_a, t_size *size, char *sol)
 {
 	int				i;
 	unsigned int	j;
@@ -36,11 +36,11 @@ char	*sort_3(t_stack **stack_a, t_size *size, char *sol)
 		i++;
 	}
 	sol = optim_rotation_a(size, i, sol);
-	sol = sort_2(stack_a, sol);
+	sol = s_2(stack_a, sol);
 	return (sol);
 }
 
-char	*sort_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
+char	*s_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int				i;
 	unsigned int	j;
@@ -58,13 +58,13 @@ char	*sort_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 	sol = optim_rotation_a(size, i, sol);
 	push(stack_a, s_b);
 	sol = add_moves(sol, "pb\n", 1);
-	sol = sort_3(stack_a, size, sol);
+	sol = s_3(stack_a, size, sol);
 	push(s_b, stack_a);
 	sol = add_moves(sol, "pa\n", 1);
 	return (sol);
 }
 
-char	*sort_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
+char	*s_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	i;
 
@@ -77,7 +77,7 @@ char	*sort_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 	sol = optim_rotation_a(size, i, sol);
 	push(stack_a, s_b);
 	sol = add_moves(sol, "pb\n", 1);
-	sol = sort_4(stack_a, s_b, size, sol);
+	sol = s_4(stack_a, s_b, size, sol);
 	sol = add_moves(sol, "pa\n", 1);
 	return (sol);
 }

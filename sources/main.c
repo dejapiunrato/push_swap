@@ -6,15 +6,15 @@ char	*parse(t_stack **stack_a, t_stack **stack_b, t_size *size, char *sol)
 
 	i = size->size;
 	if (i == 2)
-		sol = sort_2(stack_a, sol);
+		sol = s_2(stack_a, sol);
 	else if (i == 3)
-		sol = sort_3(stack_a, size, sol);
+		sol = s_3(stack_a, size, sol);
 	else if (i == 4)
-		sol = sort_4(stack_a, stack_b, size, sol);
+		sol = s_4(stack_a, stack_b, size, sol);
 	else if (i == 5)
-		sol = sort_5(stack_a, stack_b, size, sol);
+		sol = s_5(stack_a, stack_b, size, sol);
 	else
-		sol = radix_sort(stack_a, stack_b, size, sol);
+		sol = sort(stack_a, stack_b, size, sol);
 	return (sol);
 }
 
@@ -54,3 +54,38 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+/*int	main(int argc, char **argv)
+{
+    char	*solution;
+    t_stack	*stack_a;
+    t_stack	*stack_b;
+    t_size	*size;
+    FILE	*file;
+
+    if (argc > 1)
+    {
+        if (!check_input(argv + 1))
+            exit_error(&stack_a, NULL);
+        else
+        {
+            stack_a = start_stack(argv);
+            stack_b = NULL;
+            size = start_size(argc);
+            add_index(stack_a, size->bin_pos);
+            printf("bin_pos size: %d\n", size->bin_pos); // Imprime el tamaño de bin_pos
+            if (!check_order(&stack_a))
+            {
+                solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
+                file = fopen("solution.txt", "w");
+                if (file)
+                {
+                    fprintf(file, "%s", solution);
+                    fclose(file);
+                }
+                free(solution);
+            }
+            free_stacks(&stack_a, &stack_b, &size);
+        }
+    }
+    return (0);
+}*/
