@@ -56,10 +56,10 @@ char	*s_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 		i++;
 	}
 	sol = optim_rotation_a(size, i, sol);
-	push(stack_a, s_b);
+	push(stack_a, s_b, size, 'b');
 	sol = add_moves(sol, "pb\n", 1);
 	sol = s_3(stack_a, size, sol);
-	push(s_b, stack_a);
+	push(s_b, stack_a, size, 'a');
 	sol = add_moves(sol, "pa\n", 1);
 	return (sol);
 }
@@ -75,7 +75,7 @@ char	*s_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 		i++;
 	}
 	sol = optim_rotation_a(size, i, sol);
-	push(stack_a, s_b);
+	push(stack_a, s_b, size, 'b');
 	sol = add_moves(sol, "pb\n", 1);
 	sol = s_4(stack_a, s_b, size, sol);
 	sol = add_moves(sol, "pa\n", 1);

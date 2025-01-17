@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push(t_stack **src, t_stack **dest)
+void	push(t_stack **src, t_stack **dest, t_size *size, char stack)
 {
 	t_stack	*tmp;
 
@@ -10,6 +10,16 @@ void	push(t_stack **src, t_stack **dest)
 	*src = (*src)->next;
 	tmp->next = *dest;
 	*dest = tmp;
+	if (stack == 'a')
+	{
+		size->size_a++;
+		size->size_b--;
+	}
+	else
+	{
+		size->size_a--;
+		size->size_b++;
+	}
 }
 
 void	reverse_rotate(t_stack **stack)

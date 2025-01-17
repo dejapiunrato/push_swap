@@ -26,7 +26,7 @@ void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
 	*size = NULL;
 }
 
-int	main(int argc, char **argv)
+/*int	main(int argc, char **argv)
 {
 	char	*solution;
 	t_stack	*stack_a;
@@ -53,8 +53,8 @@ int	main(int argc, char **argv)
 		}
 	}
 	return (0);
-}
-/*int	main(int argc, char **argv)
+}*/
+int	main(int argc, char **argv)
 {
     char	*solution;
     t_stack	*stack_a;
@@ -72,7 +72,6 @@ int	main(int argc, char **argv)
             stack_b = NULL;
             size = start_size(argc);
             add_index(stack_a, size->bin_pos);
-            printf("bin_pos size: %d\n", size->bin_pos); // Imprime el tamaño de bin_pos
             if (!check_order(&stack_a))
             {
                 solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
@@ -87,5 +86,5 @@ int	main(int argc, char **argv)
             free_stacks(&stack_a, &stack_b, &size);
         }
     }
-    return (0);
-}*/
+	return (0);
+}

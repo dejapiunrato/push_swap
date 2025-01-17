@@ -43,7 +43,7 @@ t_size	*start_size(int argc);
 int		bin_len(int size);
 
 // Funciones de instructions.c
-void	push(t_stack **src, t_stack **dest);
+void	push(t_stack **src, t_stack **dest, t_size *size, char stack);
 void	reverse_rotate(t_stack **stack);
 void	rotate(t_stack **stack);
 void	swap(t_stack **stack);

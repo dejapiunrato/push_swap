@@ -1,69 +1,79 @@
 #include "push_swap.h"
 
-static char	*first_last(t_size *size, char *sol, int first, int last)
+int	find_first(t_stack **s_a, t_size *size, unsigned int block)
 {
 	int	i;
-	printf("Size_a: %d | First: %d | Last: %d\n", size->size_a, first, last);
-	if (size->size_a - last < first)
-		i = last;
-	else
-		i = first;
-	sol = optim_rotation_a(size, i, sol);
-	return (sol);
+	int	j;
+
+	i = 0;
+	while ((*s_a)->index >= block && i++ <= size->size_a)
+		rotate(s_a);
+	j = i;
+	while (j--)
+		reverse_rotate(s_a);
+	return (i);
+}
+
+int	find_last(t_stack **s_a, t_size *size, unsigned int block)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while ((*s_a)->index >= block && i++ <= size->size_a)
+		reverse_rotate(s_a);
+	i = size->size_a - i;
+	j = i;
+	while (j--)
+		rotate(s_a);
+	return (i);
 }
 
 static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block)
 {
 	int	i;
+	int	j;
 	int	first;
 	int	last;
 
-	i = 0;
-	while (i <= size->size_a)
-	{
-		if ((*s_a)->index < block)
-		{
-			first = i;
-			break ;
-		}
+	first = find_first(s_a, size, block);
+	last = find_last(s_a, size, block);
+	if (size->size_a - last < first)
+		i = last;
+	else
+		i = first;
+	j = i;
+	while (j--)
 		rotate(s_a);
-		i++;
-	}
-	last = i + 1;
-	while (i <= size->size_a)
-	{
-		if ((*s_a)->index < block)
-			last = i;
-		rotate(s_a);
-		i++;
-	}
-	sol = first_last(size, sol, first, last);
+	printf("%d, %d, \n", first, last);
+	sol = optim_rotation_a(size, i, sol);
 	return (sol);
 }
 
 static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	unsigned int	block;
-	int	count;
+	unsigned int	block_size;
+	int				count;
 
-	block = 5 ;
+	block_size = 3;
+	block = block_size ;
 	while (size->size_a > 0)
 	{
-		count = 5;
-		while (count > 0 && size->size_a > 0)
+		count = block_size;
+		while (count > 0 || size->size_a > 0)
 		{
+			/* printf("%d | ", (*s_a)->value); */
 			if ((*s_a)->index < block)
 			{
-				push(s_a, s_b);
+				push(s_a, s_b, size, 'b');
 				sol = add_moves(sol, "pb\n", 1);
-				size->size_a--;
-				size->size_b++;
 				count--;
 			}
 			else
 				sol = rotate_a(s_a, size, sol, block);
 		}
-		block += 5;
+		block += block_size;
 	}
 	return (sol);
 }
