@@ -55,7 +55,6 @@ static char *push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 	int	i;
 
 	index = (int)size->size - 1;
-
 	while (index)
 	{
 		if ((*s_b)->index == (unsigned int)index)

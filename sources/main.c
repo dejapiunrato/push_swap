@@ -26,7 +26,7 @@ void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
 	*size = NULL;
 }
 
-/* int	main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	*solution;
 	t_stack	*stack_a;
@@ -53,9 +53,9 @@ void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
 		}
 	}
 	return (0);
-} */
+}
 
-int	main(int argc, char **argv)
+/* int	main(int argc, char **argv)
 {
     char	*solution;
     t_stack	*stack_a;
@@ -89,3 +89,4 @@ int	main(int argc, char **argv)
     }
 	return (0);
 }
+ */
