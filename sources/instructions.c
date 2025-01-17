@@ -15,7 +15,7 @@ void	push(t_stack **src, t_stack **dest, t_size *size, char stack)
 		size->size_a++;
 		size->size_b--;
 	}
-	else
+	if (stack == 'b')
 	{
 		size->size_a--;
 		size->size_b++;

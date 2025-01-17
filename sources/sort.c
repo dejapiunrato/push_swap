@@ -22,10 +22,10 @@ int	find_last(t_stack **s_a, t_size *size, unsigned int block)
 	i = 0;
 	while ((*s_a)->index >= block && i++ <= size->size_a)
 		reverse_rotate(s_a);
-	i = size->size_a - i;
 	j = i;
 	while (j--)
 		rotate(s_a);
+	i = size->size_a - i;
 	return (i);
 }
 
@@ -45,8 +45,37 @@ static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block
 	j = i;
 	while (j--)
 		rotate(s_a);
-	printf("%d, %d, \n", first, last);
 	sol = optim_rotation_a(size, i, sol);
+	return (sol);
+}
+
+static char *push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
+{
+	int	index;
+	int	i;
+
+	index = (int)size->size - 1;
+
+	while (index)
+	{
+		if ((*s_b)->index == (unsigned int)index)
+		{
+			push(s_b, s_a, size, 'a');
+			sol = add_moves(sol, "pa\n", 1);
+			index--;
+		}
+		else
+		{
+			i = 0;
+			while ((*s_b)->index != (unsigned int)index)
+			{
+				rotate(s_b);
+				i++;
+			}
+			sol = optim_rotation_b(size, i, sol);
+		}
+	}
+	sol = add_moves(sol, "pa\n", 1);
 	return (sol);
 }
 
@@ -56,14 +85,13 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 	unsigned int	block_size;
 	int				count;
 
-	block_size = 3;
+	block_size = 18; // 18 para 100 números
 	block = block_size ;
-	while (size->size_a > 0)
+	while (size->size_a > 5)
 	{
 		count = block_size;
-		while (count > 0 || size->size_a > 0)
+		while (count && size->size_a)
 		{
-			/* printf("%d | ", (*s_a)->value); */
 			if ((*s_a)->index < block)
 			{
 				push(s_a, s_b, size, 'b');
@@ -81,5 +109,6 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 char	*sort(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	sol = push_b(s_a, s_b, size, sol);
+	sol = push_a(s_a, s_b, size, sol);
 	return (sol);
 }
