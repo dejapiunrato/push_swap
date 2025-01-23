@@ -49,3 +49,35 @@ char	*add_moves(char *solution, char *moves, int i)
 	}
 	return (solution);
 }
+
+int	find_min_a(t_stack **s_a, t_size *size)
+{
+	unsigned int	min;
+	t_stack			*tmp;
+
+	min = size->size_a;
+	tmp = *s_a;
+	while (tmp)
+	{
+		if (tmp->index < min)
+			min = tmp->index;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+int	find_max_a(t_stack **s_a)
+{
+	unsigned int	max;
+	t_stack			*tmp;
+
+	max = 0;
+	tmp = *s_a;
+	while (tmp)
+	{
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
+	}
+	return (max);
+}

@@ -1,5 +1,17 @@
 #include "push_swap.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 char	*parse(t_stack **stack_a, t_stack **stack_b, t_size *size, char *sol)
 {
 	int	i;
@@ -46,6 +58,7 @@ int	main(int argc, char **argv)
 			if (!check_order(&stack_a))
 			{
 				solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
+				/* solution = optimization(solution); */
 				ft_putstr(solution);
 				free(solution);
 			}
@@ -76,6 +89,7 @@ int	main(int argc, char **argv)
             if (!check_order(&stack_a))
             {
                 solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
+				solution = optimization(solution);
                 file = fopen("solution.txt", "w");
                 if (file)
                 {
@@ -88,5 +102,5 @@ int	main(int argc, char **argv)
         }
     }
 	return (0);
-}
- */
+} */
+

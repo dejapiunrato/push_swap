@@ -1,34 +1,5 @@
 #include "push_swap.h"
 
-int	find_first(t_stack **s_a, t_size *size, unsigned int block)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while ((*s_a)->index >= block && i++ <= size->size_a)
-		rotate(s_a);
-	j = i;
-	while (j--)
-		reverse_rotate(s_a);
-	return (i);
-}
-
-int	find_last(t_stack **s_a, t_size *size, unsigned int block)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while ((*s_a)->index >= block && i++ <= size->size_a)
-		reverse_rotate(s_a);
-	j = i;
-	while (j--)
-		rotate(s_a);
-	i = size->size_a - i;
-	return (i);
-}
-
 static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block)
 {
 	int	i;
@@ -49,13 +20,37 @@ static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block
 	return (sol);
 }
 
+static char *actions(t_stack **s_a, t_stack **s_b, char *sol)
+{
+	if (!(*s_b) || !(*s_b)->next)
+		return (sol);
+	if ((*s_b)->next->index == (*s_b)->index + 1)
+	{
+		swap(s_b);
+		sol = add_moves(sol, "sb\n", 1);
+	}
+	else if ((*s_b)->index < (*s_b)->next->index)
+	{
+		rotate(s_b);
+		sol = add_moves(sol, "rb\n", 1);
+	}
+	if (!(*s_a) || !(*s_a)->next)
+		return (sol);
+	if ((*s_a)->next->index == (*s_a)->index - 1)
+	{
+		swap(s_a);
+		sol = (add_moves(sol, "sa\n", 1));
+	}
+	return (sol);
+}
+
 static char *push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	index;
 	int	i;
 
 	index = (int)size->size - 1;
-	while (index)
+	while (index >= 0)
 	{
 		if ((*s_b)->index == (unsigned int)index)
 		{
@@ -74,7 +69,6 @@ static char *push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 			sol = optim_rotation_b(size, i, sol);
 		}
 	}
-	sol = add_moves(sol, "pa\n", 1);
 	return (sol);
 }
 
@@ -86,10 +80,10 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 
 	block_size = 18; // 18 para 100 números
 	block = block_size ;
-	while (size->size_a > 5)
+	while (size->size_a)
 	{
 		count = block_size;
-		while (count && size->size_a)
+		while (size->size_a && count)
 		{
 			if ((*s_a)->index < block)
 			{
@@ -99,6 +93,7 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 			}
 			else
 				sol = rotate_a(s_a, size, sol, block);
+			sol = actions(s_a, s_b, sol);
 		}
 		block += block_size;
 	}

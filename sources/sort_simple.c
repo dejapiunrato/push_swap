@@ -18,18 +18,13 @@ char	*s_2(t_stack **stack_a, char *sol)
 char	*s_3(t_stack **stack_a, t_size *size, char *sol)
 {
 	int				i;
-	unsigned int	j;
+	unsigned int	max;
 	t_stack			*last;
 
 	i = 0;
+	max = find_max_a(stack_a);
 	last = get_last_node(stack_a);
-	if (size->size == 3)
-		j = 2;
-	else if (size->size == 4)
-		j = 3;
-	else
-		j = 4;
-	while (last->index != j)
+	while (last->index != max)
 	{
 		rotate(stack_a);
 		last = get_last_node(stack_a);
@@ -43,14 +38,10 @@ char	*s_3(t_stack **stack_a, t_size *size, char *sol)
 char	*s_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int				i;
-	unsigned int	j;
+	unsigned int	min;
 
-	if (size->size == 5)
-		j = 1;
-	else
-		j = 0;
-	i = 0;
-	while ((*stack_a)->index != j)
+	min = find_min_a(stack_a, size);
+	while ((*stack_a)->index != min)
 	{
 		rotate(stack_a);
 		i++;
@@ -66,10 +57,12 @@ char	*s_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 
 char	*s_5(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 {
-	int	i;
+	int				i;
+	unsigned int	min;
 
 	i = 0;
-	while ((*stack_a)->index != 0)
+	min = find_min_a(stack_a, size);
+	while ((*stack_a)->index != min)
 	{
 		rotate(stack_a);
 		i++;
