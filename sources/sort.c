@@ -6,13 +6,13 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:45 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:47 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:10:26 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block)
+char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block)
 {
 	int	i;
 	int	j;
@@ -30,9 +30,9 @@ static char	*rotate_a(t_stack **s_a, t_size *size, char *sol, unsigned int block
 		rotate(s_a);
 	sol = optim_rotation_a(size, i, sol);
 	return (sol);
-} 
+}
 
-static char *actions(t_stack **s_a, t_stack **s_b, char *sol)
+static char	*actions(t_stack **s_a, t_stack **s_b, char *sol)
 {
 	if (!(*s_b) || !(*s_b)->next)
 		return (sol);
@@ -56,7 +56,7 @@ static char *actions(t_stack **s_a, t_stack **s_b, char *sol)
 	return (sol);
 }
 
-static char *push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
+static char	*push_a(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	index;
 	int	i;
@@ -91,7 +91,7 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 	unsigned int	block_size;
 	int				count;
 
-	block_size = 18; // 18 para 100 números
+	block_size = 18;
 	block = block_size ;
 	while (size->size_a)
 	{

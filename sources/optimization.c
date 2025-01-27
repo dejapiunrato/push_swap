@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:33 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:31 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:23:40 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,30 +65,42 @@ static char	*replace(char *str, char *old_sub, char *new_sub)
 	return (perform_replacement(str, old_sub, new_sub, count));
 }
 
-char *optimization(char *sol)
+static void	start_rules(t_replacement *rules)
 {
-    int len;
-    char *tmp;
-    t_replacement rules[] = {
-        {"ra\nrb\n", "rr\n"},
-        {"rb\nra\n", "rr\n"},
-        {"sa\nsb\n", "ss\n"},
-        {"sb\nsa\n", "ss\n"},
-        {"pa\npb\n", "\n"},
-        {"pb\npa\n", "\n"},
-        {NULL, NULL}
-    };
+	rules[0].old_sub = "ra\nrb\n";
+	rules[0].new_sub = "rr\n";
+	rules[1].old_sub = "rb\nra\n";
+	rules[1].new_sub = "rr\n";
+	rules[2].old_sub = "sa\nsb\n";
+	rules[2].new_sub = "ss\n";
+	rules[3].old_sub = "sb\nsa\n";
+	rules[3].new_sub = "ss\n";
+	rules[4].old_sub = "pa\npb\n";
+	rules[4].new_sub = "\n";
+	rules[5].old_sub = "pb\npa\n";
+	rules[5].new_sub = "\n";
+	rules[6].old_sub = NULL;
+	rules[6].new_sub = NULL;
+}
 
-    len = ft_strlen(sol);
-    int i = 0;
-    while (rules[i].old_sub != NULL) {
-        tmp = replace(sol, rules[i].old_sub, rules[i].new_sub);
-        free(sol);
-        sol = tmp;
-        i++;
-    }
+char	*optimization(char *sol)
+{
+	int				i;
+	int				len;
+	char			*tmp;
+	t_replacement	rules[7];
 
-    if (ft_strlen(sol) != len)
-        sol = optimization(sol);
-    return (sol);
+	i = 0;
+	len = ft_strlen(sol);
+	start_rules(rules);
+	while (rules[i].old_sub != NULL)
+	{
+		tmp = replace(sol, rules[i].old_sub, rules[i].new_sub);
+		free(sol);
+		sol = tmp;
+		i++;
+	}
+	if (ft_strlen(sol) != len)
+		sol = optimization(sol);
+	return (sol);
 }

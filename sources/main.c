@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:30 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:52:23 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/27 18:09:15 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static char	*parse(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
+static void	parse(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	i;
 
@@ -30,7 +30,8 @@ static char	*parse(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 	else
 		sol = sort(s_a, s_b, size, sol);
 	sol = optimization(sol);
-	return (sol);
+	ft_putstr(sol);
+	free(sol);
 }
 
 static void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
@@ -43,11 +44,11 @@ static void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
 
 int	main(int argc, char **argv)
 {
-	char	*solution;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_size	*size;
 
+	stack_a = NULL;
 	if (argc > 1)
 	{
 		if (!check_input(argv + 1))
@@ -59,11 +60,7 @@ int	main(int argc, char **argv)
 			size = start_size(argc);
 			add_index(stack_a, size->bin_pos);
 			if (!check_order(&stack_a))
-			{
-				solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
-				ft_putstr(solution);
-				free(solution);
-			}
+				parse(&stack_a, &stack_b, size, ft_strdup(""));
 			free_stacks(&stack_a, &stack_b, &size);
 		}
 	}
