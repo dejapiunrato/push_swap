@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   inizialization.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/27 17:44:25 by psevilla          #+#    #+#             */
+/*   Updated: 2025/01/27 17:45:38 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*start_stack(char **argv)
@@ -23,6 +35,19 @@ t_stack	*start_stack(char **argv)
 	return (stack_a);
 }
 
+int	bin_len(int size)
+{
+	int		len;
+
+	len = 0;
+	while (size)
+	{
+		size /= 2;
+		len++;
+	}
+	return (len);
+}
+
 t_size	*start_size(int argc)
 {
 	t_size	*size;
@@ -35,19 +60,6 @@ t_size	*start_size(int argc)
 	size->size_b = 0;
 	size->bin_pos = bin_len(size->size);
 	return (size);
-}
-
-int	bin_len(int size)
-{
-	int		len;
-
-	len = 0;
-	while (size)
-	{
-		size /= 2;
-		len++;
-	}
-	return (len);
 }
 
 static char	*add_bin(int index, int bin_len)

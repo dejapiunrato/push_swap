@@ -1,36 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/27 17:44:30 by psevilla          #+#    #+#             */
+/*   Updated: 2025/01/27 17:52:23 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-char	*parse(t_stack **stack_a, t_stack **stack_b, t_size *size, char *sol)
+static char	*parse(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 {
 	int	i;
 
 	i = size->size;
 	if (i == 2)
-		sol = s_2(stack_a, sol);
+		sol = s_2(s_a, sol);
 	else if (i == 3)
-		sol = s_3(stack_a, size, sol);
+		sol = s_3(s_a, size, sol);
 	else if (i == 4)
-		sol = s_4(stack_a, stack_b, size, sol);
+		sol = s_4(s_a, s_b, size, sol);
 	else if (i == 5)
-		sol = s_5(stack_a, stack_b, size, sol);
+		sol = s_5(s_a, s_b, size, sol);
 	else
-		sol = sort(stack_a, stack_b, size, sol);
+		sol = sort(s_a, s_b, size, sol);
+	sol = optimization(sol);
 	return (sol);
 }
 
-void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
+static void	free_stacks(t_stack **stack_a, t_stack **stack_b, t_size **size)
 {
 	free_stack(stack_a);
 	free_stack(stack_b);
@@ -58,7 +61,6 @@ int	main(int argc, char **argv)
 			if (!check_order(&stack_a))
 			{
 				solution = parse(&stack_a, &stack_b, size, ft_strdup(""));
-				/* solution = optimization(solution); */
 				ft_putstr(solution);
 				free(solution);
 			}
@@ -103,4 +105,3 @@ int	main(int argc, char **argv)
     }
 	return (0);
 } */
-

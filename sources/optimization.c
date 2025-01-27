@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   optimization.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/27 17:44:33 by psevilla          #+#    #+#             */
+/*   Updated: 2025/01/27 17:45:31 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	count_occurrences(char *str, char *old_sub)
@@ -41,7 +53,7 @@ static char	*perform_replacement(char *str, char *old_s, char *new_s, int count)
 	return (result);
 }
 
-char	*replace(char *str, char *old_sub, char *new_sub)
+static char	*replace(char *str, char *old_sub, char *new_sub)
 {
 	int	count;
 
