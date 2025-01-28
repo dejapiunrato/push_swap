@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:43 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/28 14:51:10 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:54:02 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_sqrt(unsigned int nbr)
 	while (i * i <= nbr)
 	{
 		if (i * i == nbr)
-			return  (i);
+			return (i);
 		i++;
 	}
 	return (i - 1);
