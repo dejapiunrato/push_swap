@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simple.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:38 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:24 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:08:18 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char	*s_4(t_stack **stack_a, t_stack **s_b, t_size *size, char *sol)
 	int				i;
 	unsigned int	min;
 
+	i = 0;
 	min = find_min_a(stack_a, size);
 	while ((*stack_a)->index != min)
 	{
