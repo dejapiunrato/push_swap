@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inizialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:25 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:38 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:42:08 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

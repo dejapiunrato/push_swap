@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   optimization.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:33 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 18:23:40 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:22:41 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,28 @@ static char	*replace(char *str, char *old_sub, char *new_sub)
 
 static void	start_rules(t_replacement *rules)
 {
-	rules[0].old_sub = "ra\nrb\n";
-	rules[0].new_sub = "rr\n";
-	rules[1].old_sub = "rb\nra\n";
-	rules[1].new_sub = "rr\n";
-	rules[2].old_sub = "sa\nsb\n";
-	rules[2].new_sub = "ss\n";
-	rules[3].old_sub = "sb\nsa\n";
-	rules[3].new_sub = "ss\n";
-	rules[4].old_sub = "pa\npb\n";
-	rules[4].new_sub = "\n";
-	rules[5].old_sub = "pb\npa\n";
-	rules[5].new_sub = "\n";
-	rules[6].old_sub = NULL;
-	rules[6].new_sub = NULL;
+	rules[0].old_sub = "ra\npb\nrra\npa\n";
+	rules[0].new_sub = "sa\n";
+	rules[1].old_sub = "rb\npa\nrrb\npb\n";
+	rules[1].new_sub = "sb\n";
+	rules[2].old_sub = "ra\nrb\n";
+	rules[2].new_sub = "rr\n";
+	rules[3].old_sub = "rb\nra\n";
+	rules[3].new_sub = "rr\n";
+	rules[4].old_sub = "rra\nrrb\n";
+	rules[4].new_sub = "rrr\n";
+	rules[5].old_sub = "rrb\nrra\n";
+	rules[5].new_sub = "rrr\n";
+	rules[6].old_sub = "sa\nsb\n";
+	rules[6].new_sub = "ss\n";
+	rules[7].old_sub = "sb\nsa\n";
+	rules[7].new_sub = "ss\n";
+	rules[8].old_sub = "\npa\npb\n";
+	rules[8].new_sub = "\n";
+	rules[9].old_sub = "\npb\npa\n";
+	rules[9].new_sub = "\n";
+	rules[10].old_sub = NULL;
+	rules[10].new_sub = NULL;
 }
 
 char	*optimization(char *sol)
@@ -88,7 +96,7 @@ char	*optimization(char *sol)
 	int				i;
 	int				len;
 	char			*tmp;
-	t_replacement	rules[7];
+	t_replacement	rules[11];
 
 	i = 0;
 	len = ft_strlen(sol);
@@ -100,7 +108,7 @@ char	*optimization(char *sol)
 		sol = tmp;
 		i++;
 	}
-	if (ft_strlen(sol) != len)
+	if (ft_strlen(sol) < len)
 		sol = optimization(sol);
 	return (sol);
 }

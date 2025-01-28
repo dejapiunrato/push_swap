@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:43:55 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:44:03 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:21:09 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,9 @@ void		swap(t_stack **stack);
 // Funciones de optimization.c
 char		*optimization(char *sol);
 
+// Funciones de radix_sort.c
+char		*radix_sort(t_stack **s_a, t_stack **s_b, t_size *size, char *sol);
+
 // Funciones de sort_simple.c
 char		*s_2(t_stack **s, char *sol);
 char		*s_3(t_stack **s_a, t_size *size, char *sol);
@@ -83,6 +86,7 @@ int			find_max_a(t_stack **s_a);
 // Funciones de sort_utils_2.c
 int			find_first(t_stack **s_a, t_size *size, unsigned int block);
 int			find_last(t_stack **s_a, t_size *size, unsigned int block);
+int			ft_sqrt(unsigned int nbr);
 
 // Funciones de sort.c
 char		*sort(t_stack **s_a, t_stack **s_b, t_size *size, char *sol);

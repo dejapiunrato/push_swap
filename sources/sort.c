@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:45 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 18:10:26 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:40:53 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static char	*push_b(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 	unsigned int	block_size;
 	int				count;
 
-	block_size = 18;
+	block_size = ft_sqrt(size->size) * 2 - 2;
 	block = block_size ;
 	while (size->size_a)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:30 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 18:09:15 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 17:22:48 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ static void	parse(t_stack **s_a, t_stack **s_b, t_size *size, char *sol)
 		sol = s_4(s_a, s_b, size, sol);
 	else if (i == 5)
 		sol = s_5(s_a, s_b, size, sol);
-	else
+	else if (i <= 100)
 		sol = sort(s_a, s_b, size, sol);
+	else
+		sol = radix_sort(s_a, s_b, size, sol);
 	sol = optimization(sol);
 	ft_putstr(sol);
 	free(sol);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:43 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/27 17:45:45 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:51:10 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,18 @@ int	find_last(t_stack **s_a, t_size *size, unsigned int block)
 		rotate(s_a);
 	i = size->size_a - i;
 	return (i);
+}
+
+int	ft_sqrt(unsigned int nbr)
+{
+	unsigned int	i;
+
+	i = 1;
+	while (i * i <= nbr)
+	{
+		if (i * i == nbr)
+			return  (i);
+		i++;
+	}
+	return (i - 1);
 }
