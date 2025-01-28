@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:23 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/28 15:38:51 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/28 18:51:13 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	if (!stack_b || !*stack_b)
 		free_stack(stack_b);
 	write(2, "Error\n", 6);
-	exit(1);
+	exit(0);
 }
 
 int	check_input(char **input)
