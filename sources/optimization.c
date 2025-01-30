@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 17:44:33 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/28 17:22:41 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:46:10 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,36 @@ static char	*replace(char *str, char *old_sub, char *new_sub)
 
 static void	start_rules(t_replacement *rules)
 {
-	rules[0].old_sub = "ra\npb\nrra\npa\n";
-	rules[0].new_sub = "sa\n";
-	rules[1].old_sub = "rb\npa\nrrb\npb\n";
-	rules[1].new_sub = "sb\n";
-	rules[2].old_sub = "ra\nrb\n";
-	rules[2].new_sub = "rr\n";
-	rules[3].old_sub = "rb\nra\n";
-	rules[3].new_sub = "rr\n";
-	rules[4].old_sub = "rra\nrrb\n";
-	rules[4].new_sub = "rrr\n";
-	rules[5].old_sub = "rrb\nrra\n";
-	rules[5].new_sub = "rrr\n";
-	rules[6].old_sub = "sa\nsb\n";
-	rules[6].new_sub = "ss\n";
-	rules[7].old_sub = "sb\nsa\n";
-	rules[7].new_sub = "ss\n";
-	rules[8].old_sub = "\npa\npb\n";
-	rules[8].new_sub = "\n";
-	rules[9].old_sub = "\npb\npa\n";
-	rules[9].new_sub = "\n";
+	rules[0].old_sub = "\nra\npb\nrra\npa\n"; //ra pb rra pa
+	rules[0].new_sub = "\nsa\n"; // sa
+
+	rules[1].old_sub = "\nrb\npa\nrrb\npb\n"; // rb pa rrb pb
+	rules[1].new_sub = "\nsb\n";
+
+	rules[2].old_sub = "ra\nrb\n"; // ra rb
+	rules[2].new_sub = "rr\n"; // rr
+
+	rules[3].old_sub = "rb\nra\n"; // rb ra
+	rules[3].new_sub = "rr\n"; // rr
+
+	rules[4].old_sub = "rra\nrrb\n"; // rra rrb
+	rules[4].new_sub = "rrr\n"; // rrr
+
+	rules[5].old_sub = "rrb\nrra\n"; // rrb rra
+	rules[5].new_sub = "rrr\n"; // rrr
+
+	rules[6].old_sub = "sa\nsb\n"; // sa sb
+	rules[6].new_sub = "ss\n"; // ss
+
+	rules[7].old_sub = "sb\nsa\n"; //sb sa
+	rules[7].new_sub = "ss\n"; // ss
+
+	rules[8].old_sub = "\npa\npb\n"; // pa pb
+	rules[8].new_sub = "\n"; // X
+
+	rules[9].old_sub = "\npb\npa\n"; // pb pa
+	rules[9].new_sub = "\n"; // X
+	
 	rules[10].old_sub = NULL;
 	rules[10].new_sub = NULL;
 }
