@@ -5,8 +5,21 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I includes
 SRCS_DIR = sources
 OBJS_DIR = objects
-SRCS = $(shell find $(SRCS_DIR) -name '*.c')
-OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
+SRCS = check_input.c \
+    check_input_utils.c \
+    inizialization.c \
+    instructions.c \
+    main.c \
+    optimization.c \
+    radix_sort.c \
+    sort.c \
+    sort_simple.c \
+    sort_utils_1.c \
+    sort_utils_2.c \
+    stack.c \
+    str_utils_1.c \
+    str_utils_2.c
+OBJS = $(patsubst %.c, $(OBJS_DIR)/%.o, $(SRCS))
 RM = rm -rf
 
 # Regla principal
